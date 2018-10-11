@@ -18,7 +18,14 @@
     "commands": [
       {
         "command": "extension.advancedOpenFile",
-        "title": "Hello World"
+        "title": "Advanced Open File"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.advancedOpenFile",
+        "key": "ctrl+alt+o",
+        "mac": "cmd+alt+o"
       }
     ]
   },
