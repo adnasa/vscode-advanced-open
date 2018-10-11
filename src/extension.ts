@@ -70,7 +70,7 @@ async function showCurrentFolderCommand() {
 // controlled by the activation events defined in package.json.
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
-    vscode.commands.registerCommand("extension.sayHello", () =>
+    vscode.commands.registerCommand("extension.advancedOpenFile", () =>
       showCurrentFolderCommand()
     )
   );
