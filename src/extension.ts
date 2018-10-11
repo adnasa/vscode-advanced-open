@@ -40,6 +40,17 @@ export function createFileOrDirectory(absolutePath: string): void {
   }
 }
 
+export async function openRequestedFile(selectedFile: String) {
+  const requestedFileToOpen = await vscode.workspace.openTextDocument(
+    selectedFile
+  );
+  if (requestedFileToOpen)
+    vscode.window.showTextDocument(
+      requestedFileToOpen,
+      vscode.ViewColumn.Active
+    );
+}
+
 async function showCurrentFolderCommand() {
   const editorPath: String = getEditorPath();
   const filesInSamePath = retrieveFilesByPath(editorPath);
@@ -56,13 +67,7 @@ async function showCurrentFolderCommand() {
     .isDirectory();
 
   if (!isDirectory) {
-    // createFileOrDirectory(selectedFileOrDirectory);
-    const textDocument = await vscode.workspace.openTextDocument(
-      pathToSelectedFile
-    );
-    if (textDocument) {
-      vscode.window.showTextDocument(textDocument, vscode.ViewColumn.Active);
-    }
+    openRequestedFile(pathToSelectedFile);
   }
 }
 
